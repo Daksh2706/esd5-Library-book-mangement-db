@@ -1,0 +1,24 @@
+<%- include('header') %>
+
+    <h1 style="color: white;">Welcome, <%= user.name %>
+    </h1>
+
+
+    <div class="container">
+        <form action="/add" method="post">
+
+            <select name="bookName" id="">
+                <% books.forEach(function(book){ %>
+                    <option value="<%= book.title %>">
+                        <%= book.title %>
+                    </option>
+                    <% }); %>
+            </select>
+            <input type="hidden" name="usr" id="" value="<%= user._id %>">
+
+            <button class="btn btn-primary" type="submit">Add this book</button>
+
+        </form>
+    </div>
+
+    <%- include('footer') %>
