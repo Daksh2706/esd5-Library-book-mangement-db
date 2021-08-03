@@ -1,6 +1,46 @@
 <%- include('header') %>
 
-    <h1>Welcome, Anshu</h1>
+    <h1 style="color: white;">Welcome, <%= user.name %>
+    </h1>
+
+    <div class="container">
+
+
+        <!-- <ul class="list-group my-4">
+            <% user.books.forEach(function(book){ %>
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Title:
+                    <%= book.title %>
+
+                        <span class="badge badge-primary badge-pill">
+                            by <%= book.author %>
+                        </span>
+                        <button type="button" class="btn btn-success">update</button>
+                        <button type="button" class="btn btn-danger">Return</button>
+                </li>
+
+                <% }); %>
+        </ul> -->
+
+        <% user.books.forEach(function(book){ %>
+            <div class="alert alert-primary" role="alert">
+
+                <%= book.title %>—<%= book.author %>
+
+
+                        <a href="/edit/<%= book._id %>"><button type="button" class="btn btn-success"
+                                style="position: absolute; right: 70px;">update</button></a>
+                        <a href="/delete/<%= book._id %>"><button type="button" class="btn btn-danger"
+                                style="position: absolute; right: 0;">Return</button></a>
+
+            </div>
+
+            <% }); %>
+
+                <a href="/add"><button class="btn btn-primary">Add book</button></a>
+    </div>
+
 
 
     <%- include('footer') %>
